@@ -24,3 +24,14 @@ set_time = {
     "id": 0x86,
     "time": None
 }
+
+start_game {
+    "id": 0x87,
+    "seed": None,
+    "generator": None,
+    "gamemode": None,
+    "entity_id": None,
+    "x": None,
+    "y": None,
+    "x": None
+}
