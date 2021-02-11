@@ -44,5 +44,21 @@ add_mob = {
     "y": None,
     "z": None,
     "yaw": None,
-    "pitch": None
+    "pitch": None,
+    "metadata": None
+}
+
+add_player = {
+    "id": 0x89,
+    "client_id": None,
+    "username": None,
+    "entity_id": None,
+    "x": None,
+    "y": None,
+    "z": None,
+    "yaw": None,
+    "pitch": None,
+    "item": None,
+    "meta": None,
+    "metadata": None
 }
