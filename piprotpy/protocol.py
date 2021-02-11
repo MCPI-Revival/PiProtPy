@@ -35,3 +35,14 @@ start_game {
     "y": None,
     "x": None
 }
+
+add_mob = {
+    "id": 0x88,
+    "entity_id": None,
+    "type": None,
+    "x": None,
+    "y": None,
+    "z": None,
+    "yaw": None,
+    "pitch": None
+}
