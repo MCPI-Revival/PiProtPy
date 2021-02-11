@@ -69,7 +69,7 @@ remove_player = {
     "client_id": None
 }
 
-add_entity_packet = {
+add_entity = {
     "id": 0x8c,
     "entity_id": None,
     "type": None,
@@ -82,7 +82,9 @@ add_entity_packet = {
     "speed_z": None
 }
 
-remove_entity_packet = {
+remove_entity = {
     "id": 0x8d,
     "entity_id": None
 }
+
+
