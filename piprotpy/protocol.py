@@ -62,3 +62,9 @@ add_player = {
     "meta": None,
     "metadata": None
 }
+
+remove_player = {
+    "id": 0x8a,
+    "entity_id": None,
+    "client_id": None
+}
