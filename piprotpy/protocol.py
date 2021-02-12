@@ -98,5 +98,5 @@ add_item_entity = {
     "z": None, # Float
     "yaw": None, # Byte
     "pitch": None, # Byte
-    "roll": None
+    "roll": None # Byte
 }
