@@ -194,3 +194,18 @@ level_event = {
     "z": None, # Short
     "data": None # Int
 }
+
+tile_event = {
+    "id": 0x9b, # Byte
+    "x": None, # Int
+    "y": None, # Int
+    "z": None, # Int
+    "case_1": None, # Int
+    "case_2": None # Int
+}
+
+entity_event = {
+    "id": 0x9c, # Byte
+    "entity_id": None, # Int
+    "event": None # Byte
+}
