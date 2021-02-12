@@ -153,3 +153,23 @@ remove_block  = {
     "z": None, # Int
     "y": None # Byte
 }
+
+update_block = {
+    "id": 0x97, # Byte
+    "entity_id": None, # Int
+    "x": None, # Int
+    "z": None, # Int
+    "y": None, # Byte
+    "block": None, # Byte
+    "meta": None # Byte
+}
+
+add_painting = {
+    "id": 0x98, # Byte
+    "entity_id": None, # Int
+    "x": None, # Int
+    "y": None, # Int
+    "z": None, # Int
+    "direction": None, # Int
+    "title": None # String
+}
