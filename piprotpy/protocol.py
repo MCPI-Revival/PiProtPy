@@ -2,7 +2,7 @@ login = {
     "id": 0x82, # Byte
     "username": None, # String
     "protocol_1": None, # Int
-    "protocol_2": None
+    "protocol_2": None # Int
 }
 
 login_status = {
