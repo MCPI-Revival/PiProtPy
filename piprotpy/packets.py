@@ -209,3 +209,9 @@ entity_event = {
     "entity_id": None, # Int
     "event": None # Byte
 }
+
+request_chunk = {
+    "id": 0x9d, # Byte
+    "x": None, # Int
+    "z": None # Int
+}
