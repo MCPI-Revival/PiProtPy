@@ -106,3 +106,31 @@ take_item_entity = {
     "target": None, # Int
     "entity_id": None # Int
 }
+
+move_entity = {
+    "id": 0x90, # Byte
+    "entity_id": None, # Int
+    "x": None, # Float
+    "y": None, # Float
+    "z": None # Float
+}
+
+move_entity_posrot = {
+    "id": 0x93, # Byte
+    "entity_id": None, # Int
+    "x": None, # Float
+    "y": None, # Float
+    "z": None, # Float
+    "yaw": None, # Float
+    "pitch": None # Float
+}
+
+move_player = {
+    "id": 0x94, # Byte
+    "entity_id": None, # Int
+    "x": None, # Float
+    "y": None, # Float
+    "z": None, # Float
+    "yaw": None, # Float
+    "pitch": None # Float
+}
