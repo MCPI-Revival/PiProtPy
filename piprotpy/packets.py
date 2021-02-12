@@ -173,3 +173,24 @@ add_painting = {
     "direction": None, # Int
     "title": None # String
 }
+
+explode = {
+    "id": 0x99, # Byte
+    "x": None, # Float
+    "y": None, # Float
+    "z": None, # Float
+    "radius": None, # Float
+    "count": None, # Int
+    "records": None, # Byte
+    "has_counts": None, # Byte
+    "has_records": None # Byte
+}
+
+"""level_event = {
+    "id": 0x9a, # Byte
+    "event_id": None, # Short
+    "x": None, # Short
+    "y": None, # Short
+    "z": None, # Short
+    "data": None # Int
+}"""
