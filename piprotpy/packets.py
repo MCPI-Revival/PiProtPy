@@ -43,6 +43,8 @@ add_mob = {
     "x": None, # Float
     "y": None, # Float
     "z": None, # Float
+    "yaw": None, # Byte
+    "pitch": None, # Byte
     "metadata": None # Metadata[]
 }
 
@@ -54,6 +56,10 @@ add_player = {
     "x": None, # Float
     "y": None, # Float
     "z": None, # Float
+    "yaw": None, # Byte
+    "pitch": None, # Byte
+    "item": None, # Short
+    "meta": None, # Short
     "metadata": None # Metadata[]
 }
 
