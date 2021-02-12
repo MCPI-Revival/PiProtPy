@@ -1,90 +1,102 @@
 login = {
-    "id": 0x82,
-    "username": None,
-    "protocol_1": None,
+    "id": 0x82, # Byte
+    "username": None, # String
+    "protocol_1": None, # Int
     "protocol_2": None
 }
 
 login_status = {
-    "id": 0x83,
-    "status": None
+    "id": 0x83, # Byte
+    "status": None # Int
 }
 
 ready = {
-    "id": 0x84,
-    "status": None
+    "id": 0x84, # Byte
+    "status": None # Byte
 }
 
 message = {
-    "id": 0x85,
-    "message": None
+    "id": 0x85, # Byte
+    "message": None # String
 }
 
 set_time = {
-    "id": 0x86,
-    "time": None
+    "id": 0x86, # Byte
+    "time": None # Int
 }
 
 start_game {
-    "id": 0x87,
-    "seed": None,
-    "generator": None,
-    "gamemode": None,
-    "entity_id": None,
-    "x": None,
-    "y": None,
-    "x": None
+    "id": 0x87, # Byte
+    "seed": None, # Int
+    "generator": None, # Int
+    "gamemode": None, # Int
+    "entity_id": None, # Int
+    "x": None, # Float
+    "y": None, # Float
+    "x": None # Float
 }
 
 add_mob = {
-    "id": 0x88,
-    "entity_id": None,
-    "type": None,
-    "x": None,
-    "y": None,
-    "z": None,
-    "yaw": None,
-    "pitch": None,
-    "metadata": None
+    "id": 0x88, # Byte
+    "entity_id": None, # Int
+    "type": None, # Int
+    "x": None, # Float
+    "y": None, # Float
+    "z": None, # Float
+    "yaw": None, # Byte
+    "pitch": None, # Byte
+    "metadata": None # Metadata[]
 }
 
 add_player = {
-    "id": 0x89,
-    "client_id": None,
-    "username": None,
-    "entity_id": None,
-    "x": None,
-    "y": None,
-    "z": None,
-    "yaw": None,
-    "pitch": None,
-    "item": None,
-    "meta": None,
-    "metadata": None
+    "id": 0x89, # Byte
+    "client_id": None, # Long
+    "username": None, # String
+    "entity_id": None, # Int
+    "x": None, # Float
+    "y": None, # Float
+    "z": None, # Float
+    "yaw": None, # Byte
+    "pitch": None, # Byte
+    "item": None, # Short
+    "meta": None, # Short
+    "metadata": None # Metadata[]
 }
 
 remove_player = {
-    "id": 0x8a,
-    "entity_id": None,
-    "client_id": None
+    "id": 0x8a, # Byte
+    "entity_id": None, # Int
+    "client_id": None # Long
 }
 
 add_entity = {
-    "id": 0x8c,
-    "entity_id": None,
-    "type": None,
-    "x": None,
-    "y": None,
-    "z": None,
-    "has_speed": None,
-    "speed_x": None,
-    "speed_y": None,
-    "speed_z": None
+    "id": 0x8c, # Byte
+    "entity_id": None, # Int
+    "type": None, # Byte
+    "x": None, # Float
+    "y": None, # Float
+    "z": None, # Float
+    "has_speed": None, # Int
+    "speed_x": None, # Short
+    "speed_y": None, # Short
+    "speed_z": None # Short
 }
 
 remove_entity = {
-    "id": 0x8d,
-    "entity_id": None
+    "id": 0x8d, # Byte
+    "entity_id": None # Int
 }
 
-
+add_item_entity = {
+    "id": 0x8e, # Byte
+    "entity_id": None, # Int
+    "block": None, # Short
+    "stack": None, # Byte
+    "meta": None, # Short
+    "x": None, # Float
+    "y": None, # Float
+    "z": None, # Float
+    "yaw": None, # Byte
+    "pitch": None, # Byte
+    "roll": None
+}
