@@ -215,3 +215,10 @@ request_chunk = {
     "x": None, # Int
     "z": None # Int
 }
+
+chunk_data = {
+    "id": 0x9e, # Byte
+    "x": None, # Int
+    "z": None # Int
+    "data": None # byte[]
+}
