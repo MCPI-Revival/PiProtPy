@@ -186,11 +186,11 @@ explode = {
     "has_records": None # Byte
 }
 
-"""level_event = {
+level_event = {
     "id": 0x9a, # Byte
     "event_id": None, # Short
     "x": None, # Short
     "y": None, # Short
     "z": None, # Short
     "data": None # Int
-}"""
+}
