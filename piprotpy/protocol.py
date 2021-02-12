@@ -100,3 +100,9 @@ add_item_entity = {
     "pitch": None, # Byte
     "roll": None # Byte
 }
+
+take_item_entity = {
+    "id": 0x8f, # Byte
+    "target": None, # Int
+    "entity_id": None # Int
+}
