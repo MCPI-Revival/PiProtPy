@@ -134,3 +134,22 @@ move_player = {
     "yaw": None, # Float
     "pitch": None # Float
 }
+
+place_block = {
+    "id": 0x95, # Byte
+    "entity_id": None, # Int
+    "x": None, # Int
+    "z": None, # Int
+    "y": None, # Byte
+    "block": None, # Byte
+    "meta": None, # Byte
+    "face": None # Byte
+}
+
+remove_block  = {
+    "id": 0x96, # Byte
+    "entity_id": None, # Int
+    "x": None, # Int
+    "z": None, # Int
+    "y": None # Byte
+}
