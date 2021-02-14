@@ -222,3 +222,9 @@ chunk_data = {
     "z": None # Int
     "data": None # byte[]
 }
+
+player_equipment = {
+    "id": 0x9f,
+    "block": None, # Short
+    "meta": None # Short
+}
