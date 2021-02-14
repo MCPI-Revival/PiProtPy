@@ -219,7 +219,7 @@ request_chunk = {
 chunk_data = {
     "id": 0x9e, # Byte
     "x": None, # Int
-    "z": None # Int
+    "z": None, # Int
     "data": None # byte[]
 }
 
@@ -235,4 +235,11 @@ player_armor_equipment = {
     "slot_2": None, # Byte
     "slot_3": None, # Byte
     "slot_4": None # Byte
+}
+
+interact = {
+    "id": 0xa1, # Byte
+    "action": None, # Byte
+    "entity_id": None, # Int
+    "target": None # Int
 }
