@@ -257,3 +257,13 @@ use_item = {
     "fy": None, # Float
     "fz": None # Float
 }
+
+player_action = {
+    "id": 0xa3, # Byte
+    "action": None, # int
+    "x": None, # Int
+    "y": None, # Int
+    "z": None, # Int
+    "face": None, # Int
+    "entity_id": None # Int
+}
