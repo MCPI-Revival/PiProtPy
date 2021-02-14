@@ -304,3 +304,11 @@ animate = {
     "action": None, # Byte
     "entity_id": None # Int
 }
+
+respawn = {
+    "id": 0xab, # Byte
+    "entity_id": None, # Int
+    "x": None, # Float
+    "y": None, # Float
+    "z": None # Float
+}
