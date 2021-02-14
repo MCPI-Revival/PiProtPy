@@ -267,3 +267,7 @@ player_action = {
     "face": None, # Int
     "entity_id": None # Int
 }
+
+hurt_armor = {
+    "id": 0xa5 # Byte
+}
