@@ -298,3 +298,9 @@ set_spawn_position = {
     "z": None, # Int
     "y": None # Byte
 }
+
+animate = {
+    "id": 0xaa, # Byte
+    "action": None, # Byte
+    "entity_id": None # Int
+}
