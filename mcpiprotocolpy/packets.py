@@ -243,3 +243,17 @@ interact = {
     "entity_id": None, # Int
     "target": None # Int
 }
+
+use_item = {
+    "id": 0xa2, # Byte
+    "x": None, # Int
+    "y": None, # Int
+    "z": None, # Int
+    "face": None, # Int
+    "block": None, # Short
+    "meta": None, # Byte
+    "entity_id": None, # Int
+    "fx": None, # Float
+    "fy": None, # Float
+    "fz": None # Float
+}
