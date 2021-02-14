@@ -224,7 +224,15 @@ chunk_data = {
 }
 
 player_equipment = {
-    "id": 0x9f,
+    "id": 0x9f, # Byte
     "block": None, # Short
     "meta": None # Short
+}
+
+player_armor_equipment = {
+    "id": 0xa0, # Byte
+    "slot_1": None, # Byte
+    "slot_2": None, # Byte
+    "slot_3": None, # Byte
+    "slot_4": None # Byte
 }
