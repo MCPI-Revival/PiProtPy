@@ -269,5 +269,25 @@ player_action = {
 }
 
 hurt_armor = {
-    "id": 0xa5 # Byte
+    "id": 0xa5, # Byte
+    "health": None # Byte
+}
+
+set_entity_data = {
+    "id": 0xa6, # Byte
+    "entity_id": None, # Int
+    "metadata": None # Metadata[]
+}
+
+set_entity_motion = {
+    "id": 0xa7, # Byte
+    "entity_id": None, # Int
+    "x": None, # Short
+    "y": None, # Short
+    "z": None, # Short
+}
+
+set_health = {
+    "id": 0xa8, # Byte
+    "health": None # Byte
 }
