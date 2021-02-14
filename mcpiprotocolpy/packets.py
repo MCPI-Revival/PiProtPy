@@ -291,3 +291,10 @@ set_health = {
     "id": 0xa8, # Byte
     "health": None # Byte
 }
+
+set_spawn_position = {
+    "id": 0xa9, # Byte
+    "x": None, # Int
+    "z": None, # Int
+    "y": None # Byte
+}
