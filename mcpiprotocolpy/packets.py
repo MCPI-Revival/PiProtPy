@@ -397,7 +397,7 @@ def read_metadata(data):
     metadata = {}
     offset = 0
     while True:
-        index = data[offset] & 0x1F
+        index = data[offset] & 0x1f
         data_type = data[offset] >> 5
         offset += 1
         if data_type == 0: # Byte
@@ -442,7 +442,7 @@ def write_metadata(value):
     for index, key in value.items():
         data_type = key["type"]
         value = key["value"]
-        data += bytes([data_type << 5])
+        data += bytes([data_type << 5] & (0xe0 | index))
         if data_type == 0: # Byte
             data += bytes([value])
         elif data_type == 1: # Short
