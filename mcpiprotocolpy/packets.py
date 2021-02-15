@@ -454,7 +454,7 @@ def write_metadata(value):
             data += dtv["value"].encode()
         elif dtv["type"] == 5: # Item
             data += struct.pack("<H", dtv["value"]["block"])
-            data += bytes([value["stack"]])
+            data += bytes([dtv["value"]["stack"]])
             data += struct.pack("<H", dtv["value"]["meta"])
         elif dtv["type"] == 6: # Position
             data += struct.pack("<l", dtv["value"]["x"])
