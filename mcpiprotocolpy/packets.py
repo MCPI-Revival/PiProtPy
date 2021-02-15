@@ -397,7 +397,7 @@ def read_metadata(data):
     metadata = {}
     offset = 0
     while True:
-        index = data[offset] & 0x1f
+        bottom = data[offset] & 0x1f
         data_type = data[offset] >> 5
         offset += 1
         if data_type == 0: # Byte
@@ -432,35 +432,33 @@ def read_metadata(data):
             offset += 4
             value["z"] = struct.unpack("<l", data[offset:offset + 4])[0]
             offset += 4
-        metadata[index] = {"type": data_type, "value": value}
+        metadata[bottom] = {"type": data_type, "value": value}
         if (data_type << 5) == 127 or len(data) <= offset or offset < 0:
             break
     return metadata
 
 def write_metadata(value):
     data = b""
-    for index, key in value.items():
-        data_type = key["type"]
-        value = key["value"]
-        data += bytes([(data_type << 5) & (0xe0 | index)])
-        if data_type == 0: # Byte
-            data += bytes([value])
-        elif data_type == 1: # Short
-            data += struct.pack("<H", value)
-        elif data_type == 2: # Int
-            data += struct.pack("<l", value)
-        elif data_type == 3: # Float
-            data += struct.pack("<f", value)
-        elif data_type == 4: # String
-            data += struct.pack("<H", len(value))
-            data += value.encode()
-        elif data_type == 5: # Item
-            data += struct.pack("<H", value["value"])
+    for bottom, dtv in value.items():
+        data += bytes([(dtv["type"] << 5) & (bottom & 0x1f)])
+        if dtv["type"] == 0: # Byte
+            data += bytes([dtv["value"]])
+        elif dtv["type"] == 1: # Short
+            data += struct.pack("<H", dtv["value"])
+        elif dtv["type"] == 2: # Int
+            data += struct.pack("<l", dtv["value"])
+        elif dtv["type"] == 3: # Float
+            data += struct.pack("<f", dtv["value"])
+        elif dtv["type"] == 4: # String
+            data += struct.pack("<H", len(dtv["value"]))
+            data += dtv["value"].encode()
+        elif dtv["type"] == 5: # Item
+            data += struct.pack("<H", dtv["value"]["block"])
             data += bytes([value["stack"]])
-            data += struct.pack("<H", value["meta"])
-        elif data_type == 6: # Position
-            data += struct.pack("<l", value["x"])
-            data += struct.pack("<l", value["y"])
-            data += struct.pack("<l", value["z"])
+            data += struct.pack("<H", dtv["value"]["meta"])
+        elif dtv["type"] == 6: # Position
+            data += struct.pack("<l", dtv["value"]["x"])
+            data += struct.pack("<l", dtv["value"]["y"])
+            data += struct.pack("<l", dtv["value"]["z"])
     return data
             
