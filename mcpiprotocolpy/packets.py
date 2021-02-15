@@ -321,3 +321,12 @@ send_inventory = {
     "slots": None, # Byte[]
     "armor": None # Byte[]
 }
+
+drop_item = {
+    "id": 0xad, # Byte
+    "entity_id": None, # Int
+    "type": None, # Byte
+    "block": None, # Short
+    "stack": None, # Byte
+    "meta": None # Short
+}
