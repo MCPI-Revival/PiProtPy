@@ -312,3 +312,12 @@ respawn = {
     "y": None, # Float
     "z": None # Float
 }
+
+send_inventory = {
+    "id": 0xac, # Byte
+    "entity_id": None, # Int
+    "window_id": None, # Byte
+    "count": None, # Short
+    "slots": None, # Byte[]
+    "armor": None # Byte[]
+}
