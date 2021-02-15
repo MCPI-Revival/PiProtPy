@@ -330,3 +330,63 @@ drop_item = {
     "stack": None, # Byte
     "meta": None # Short
 }
+
+container_open = {
+    "id": 0xae, # Byte
+    "window_id": None, # Byte
+    "type": None, # Byte
+    "slot": None, # Byte
+    "title": None # String
+}
+
+container_close = {
+    "id": 0xaf, # Byte
+    "window_id": None # Byte
+}
+
+container_set_slot = {
+    "id": 0xb0, # Byte
+    "window_id": None, # Byte
+    "block": None, # Short
+    "stack": None, # Byte
+    "meta": None # Short
+}
+
+container_set_data = {
+    "id": 0xb1, # Byte
+    "window_id": None, # Byte
+    "property": None, # Short
+    "value": None # Short
+}
+
+container_set_content = {
+    "id": 0xb2, # Byte
+    "window_id": None, # Byte
+    "count": None, # Short
+    "items": None # byte[]
+}
+
+container_ack = {
+    "id": 0xb3, # Byte
+    "window_id": None, # Byte
+    "count": None, # Short
+    "items": None # byte[]
+}
+
+chat = {
+    "id": 0xb4, # Byte
+    "message": None # String
+}
+
+sign_update = {
+    "id": 0xb5, # Byte
+    "x": None, # Short
+    "y": None, # Byte
+    "z": None, # Short
+    "lines": None # String
+}
+
+adventure_settings = {
+    "id": 0xb6, # Byte
+    "flags": None # Int
+}
