@@ -417,24 +417,27 @@ def read_metadata(data):
             offset += 2
             value = data[offset:offset + length].decode()
         elif data_type == 5: # Item
-            block = struct.unpack("<H", data[offset:offset + 2])[0]
+            value = {}
+            value["block"] = struct.unpack("<H", data[offset:offset + 2])[0]
             offset += 2
-            stack = data[offset]
+            value["stack"] = data[offset]
             offset += 1
-            meta = struct.unpack("<H", data[offset:offset + 2])[0]
+            value["meta"] = struct.unpack("<H", data[offset:offset + 2])[0]
             offset += 2
-            value = [block, stack, meta]
         elif data_type == 6: # Position
-            value = []
-            for i in range(0, 3):
-                value.append(struct.unpack("<l", data[offset:offset + 4])[0])
-                offset += 4
+            value = {}
+            value["x"] = struct.unpack("<l", data[offset:offset + 4])[0])
+            offset += 4
+            value["y"] = struct.unpack("<l", data[offset:offset + 4])[0])
+            offset += 4
+            value["z"] = struct.unpack("<l", data[offset:offset + 4])[0])
+            offset += 4
         metadata[index] = {"type": data_type, "value": value}
         if (data_type << 5) == 127:
             break
     return metadata
 
-def writeMetadata(value):
+def write_metadata(value):
     data = b""
     for index, key in value.items():
         data_type = key["type"]
@@ -452,12 +455,12 @@ def writeMetadata(value):
             data += struct.pack("<H", len(value))
             data += value.encode()
         elif data_type == 5: # Item
-            data += struct.pack("<H", value[0])
-            data += bytes([value[1]])
-            data += struct.pack("<H", value[2])
+            data += struct.pack("<H", value["value"])
+            data += bytes([value["stack"]])
+            data += struct.pack("<H", value["meta"])
         elif data_type == 6: # Position
-            data += struct.pack("<l", value[0])
-            data += struct.pack("<l", value[1])
-            data += struct.pack("<l", value[2])
+            data += struct.pack("<l", value["x"])
+            data += struct.pack("<l", value["y"])
+            data += struct.pack("<l", value["z"])
     return data
             
