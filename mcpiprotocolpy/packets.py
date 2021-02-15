@@ -1,3 +1,5 @@
+import struct
+
 login = {
     "id": 0x82, # Byte
     "username": None, # String
