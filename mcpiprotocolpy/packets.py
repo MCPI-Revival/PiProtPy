@@ -396,7 +396,7 @@ adventure_settings = {
 def read_metadata(data):
     metadata = {}
     offset = 0
-    while True:
+    while not len(data) <= offset:
         bottom = data[offset] & 0x1f
         data_type = data[offset] >> 5
         offset += 1
@@ -433,7 +433,7 @@ def read_metadata(data):
             value["z"] = struct.unpack("<l", data[offset:offset + 4])[0]
             offset += 4
         metadata[bottom] = {"type": data_type, "value": value}
-        if (data_type << 5) == 127 or len(data) <= offset or offset < 0:
+        if (data_type << 5) == 127:
             break
     return metadata
 
