@@ -390,3 +390,41 @@ adventure_settings = {
     "id": 0xb6, # Byte
     "flags": None # Int
 }
+
+def read_metadata(data):
+    metadata = {}
+    offset = 0
+    while True:
+        bottom = data[offset] & 0x1F
+        data_type = data[offset] >> 5
+        offset += 1
+        if data_type == 0: # Byte
+            result = data[offset]
+            offset += 1
+        elif data_type == 1: # Short
+            result = struct.unpack("<H", data[offset:offset + 2])[0]
+            offset += 2
+        elif data_type == 2: # Int
+            result = struct.unpack("<l", data[offset:offset + 4])[0]
+            offset += 4
+        elif data_type == 3: # Float
+            result = struct.unpack("<f", data[offset:offset + 4])[0]
+            offset += 4
+        elif data_type == 4: # String
+            length = struct.unpack("<H", data[offset:offset + 2])[0]
+            offset += 2
+            result = data[offset:offset + length]
+        elif data_type == 5: # Item
+            block = struct.unpack("<H", data[offset:offset + 2])[0]
+            offset += 2
+            stack = data[offset]
+            offset += 1
+            meta = struct.unpack("<H", data[offset:offset + 2])[0]
+            offset += 2
+            result = [block, stack, meta]
+        elif data_type == 6:
+            pass
+        metadata[bottom] = result
+        if (data_type << 5) == 127:
+            break
+    return metadata
