@@ -433,7 +433,7 @@ def read_metadata(data):
             value["z"] = struct.unpack("<l", data[offset:offset + 4])[0]
             offset += 4
         metadata[index] = {"type": data_type, "value": value}
-        if (data_type << 5) == 127:
+        if (data_type << 5) == 127 or len(data) <= offset or offset < 0:
             break
     return metadata
 
