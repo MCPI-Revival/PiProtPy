@@ -395,7 +395,7 @@ def read_metadata(data):
     metadata = {}
     offset = 0
     while True:
-        bottom = data[offset] & 0x1F
+        index = data[offset] & 0x1F
         data_type = data[offset] >> 5
         offset += 1
         if data_type == 0: # Byte
@@ -422,12 +422,15 @@ def read_metadata(data):
             meta = struct.unpack("<H", data[offset:offset + 2])[0]
             offset += 2
             result = [block, stack, meta]
-        elif data_type == 6: # Vector3?
+        elif data_type == 6: # Position
             result = []
             for i in range(0, 3):
                 result.append(struct.unpack("<l", data[offset:offset + 4])[0])
                 offset += 4
-        metadata[bottom] = result
+        metadata[index] = {"type": dara_type, "value": result}
         if (data_type << 5) == 127:
             break
     return metadata
+
+def writeMetadata(value):
+    
