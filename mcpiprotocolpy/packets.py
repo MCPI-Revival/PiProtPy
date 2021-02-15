@@ -442,7 +442,7 @@ def write_metadata(value):
     for index, key in value.items():
         data_type = key["type"]
         value = key["value"]
-        data += bytes([data_type << 5] & (0xe0 | index))
+        data += bytes([(data_type << 5) & (0xe0 | index)])
         if data_type == 0: # Byte
             data += bytes([value])
         elif data_type == 1: # Short
