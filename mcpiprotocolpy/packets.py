@@ -27,7 +27,7 @@ set_time = {
     "time": None # Int
 }
 
-start_game {
+start_game = {
     "id": 0x87, # Byte
     "seed": None, # Int
     "generator": None, # Int
