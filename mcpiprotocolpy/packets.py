@@ -426,11 +426,11 @@ def read_metadata(data):
             offset += 2
         elif data_type == 6: # Position
             value = {}
-            value["x"] = struct.unpack("<l", data[offset:offset + 4])[0])
+            value["x"] = struct.unpack("<l", data[offset:offset + 4])[0]
             offset += 4
-            value["y"] = struct.unpack("<l", data[offset:offset + 4])[0])
+            value["y"] = struct.unpack("<l", data[offset:offset + 4])[0]
             offset += 4
-            value["z"] = struct.unpack("<l", data[offset:offset + 4])[0])
+            value["z"] = struct.unpack("<l", data[offset:offset + 4])[0]
             offset += 4
         metadata[index] = {"type": data_type, "value": value}
         if (data_type << 5) == 127:
