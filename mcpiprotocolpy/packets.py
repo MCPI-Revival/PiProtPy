@@ -399,21 +399,21 @@ def read_metadata(data):
         data_type = data[offset] >> 5
         offset += 1
         if data_type == 0: # Byte
-            result = data[offset]
+            value = data[offset]
             offset += 1
         elif data_type == 1: # Short
-            result = struct.unpack("<H", data[offset:offset + 2])[0]
+            value = struct.unpack("<H", data[offset:offset + 2])[0]
             offset += 2
         elif data_type == 2: # Int
-            result = struct.unpack("<l", data[offset:offset + 4])[0]
+            value = struct.unpack("<l", data[offset:offset + 4])[0]
             offset += 4
         elif data_type == 3: # Float
-            result = struct.unpack("<f", data[offset:offset + 4])[0]
+            value = struct.unpack("<f", data[offset:offset + 4])[0]
             offset += 4
         elif data_type == 4: # String
             length = struct.unpack("<H", data[offset:offset + 2])[0]
             offset += 2
-            result = data[offset:offset + length]
+            value = data[offset:offset + length].decode()
         elif data_type == 5: # Item
             block = struct.unpack("<H", data[offset:offset + 2])[0]
             offset += 2
@@ -421,16 +421,41 @@ def read_metadata(data):
             offset += 1
             meta = struct.unpack("<H", data[offset:offset + 2])[0]
             offset += 2
-            result = [block, stack, meta]
+            value = [block, stack, meta]
         elif data_type == 6: # Position
-            result = []
+            value = []
             for i in range(0, 3):
-                result.append(struct.unpack("<l", data[offset:offset + 4])[0])
+                value.append(struct.unpack("<l", data[offset:offset + 4])[0])
                 offset += 4
-        metadata[index] = {"type": dara_type, "value": result}
+        metadata[index] = {"type": data_type, "value": value}
         if (data_type << 5) == 127:
             break
     return metadata
 
 def writeMetadata(value):
-    
+    data = b""
+    for index, key in value.items():
+        data_type = key["type"]
+        value = key["value"]
+        data += bytes([data_type << 5])
+        if data_type == 0: # Byte
+            data += bytes([value])
+        elif data_type == 1: # Short
+            data += struct.pack("<H", value)
+        elif data_type == 2: # Int
+            data += struct.pack("<l", value)
+        elif data_type == 3: # Float
+            data += struct.pack("<f", value)
+        elif data_type == 4: # String
+            data += struct.pack("<H", len(value))
+            data += value.encode()
+        elif data_type == 5: # Item
+            data += struct.pack("<H", value[0])
+            data += bytes([value[1]])
+            data += struct.pack("<H", value[2])
+        elif data_type == 6: # Position
+            data += struct.pack("<l", value[0])
+            data += struct.pack("<l", value[1])
+            data += struct.pack("<l", value[2])
+    return data
+            
